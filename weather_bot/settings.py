@@ -11,21 +11,25 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+
+env = environ.Env(SECRET_KEY=str,)
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x9)m_79jr7w@8jdc+&@^lj^e$1%42f0dw2a@ck2e4an0udy$cl'
+SECRET_KEY =  env(‘DJANGO_SECRET_KEY’)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env(‘DJANGO_DEBUG’)
 
-ALLOWED_HOSTS = [".ngrok.io"]
+ALLOWED_HOSTS = env(‘DJANGO_ALLOWED_HOSTS’)
 
 
 # Application definition
@@ -121,3 +125,5 @@ OPEN_WEATHER_API_KEY = "57c0c526407132dda42696cb2f40de57"
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
