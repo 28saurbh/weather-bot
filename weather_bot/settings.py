@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import environ
-
+import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -127,3 +127,4 @@ OPEN_WEATHER_API_KEY = "57c0c526407132dda42696cb2f40de57"
 STATIC_URL = '/static/'
 
 
+django_heroku.settings(locals())
