@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 import environ
 import django_heroku
@@ -118,7 +118,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-import os
+
 
 OPEN_WEATHER_API_KEY = "57c0c526407132dda42696cb2f40de57"
 # Static files (CSS, JavaScript, Images)
